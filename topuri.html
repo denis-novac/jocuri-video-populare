@@ -196,7 +196,12 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Jocuri Video Populare. Toate drepturile rezervate.</p>
+            <p id="footer-text"></p>
+            <script>
+                const year = new Date().getFullYear();
+                document.getElementById("footer-text").innerHTML =
+                "&copy; " + year + " Jocuri Video Populare. Toate drepturile rezervate.";
+            </script>
         </div>
     </footer>
 </body>
