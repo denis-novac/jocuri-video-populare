@@ -1,0 +1,1583 @@
+/* ============================================================
+   JOCURI VIDEO POPULARE — style.css
+   ============================================================
+   Design: dark/editorial gaming aesthetic
+   Typography: Rajdhani (display) + Source Sans 3 (body)
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+/* ============================================================
+   1. CSS VARIABLES
+   ============================================================ */
+:root {
+  /* Palette */
+  --clr-bg:          #0f0f13;
+  --clr-surface:     #16161d;
+  --clr-surface-2:   #1e1e28;
+  --clr-surface-3:   #252531;
+  --clr-border:      rgba(255,255,255,0.07);
+
+  --clr-accent:      #7c6af5;          /* violet */
+  --clr-accent-2:    #a855f7;          /* purple */
+  --clr-accent-glow: rgba(124,106,245,0.35);
+
+  --clr-text:        #e8e8f0;
+  --clr-text-muted:  #8888a8;
+  --clr-text-dim:    #555568;
+
+  --clr-gold:        #f5b50a;
+
+  /* Gradients */
+  --grad-accent:   linear-gradient(135deg, var(--clr-accent) 0%, var(--clr-accent-2) 100%);
+  --grad-surface:  linear-gradient(160deg, var(--clr-surface-2) 0%, var(--clr-surface) 100%);
+
+  /* Spacing */
+  --space-xs:  0.4rem;
+  --space-sm:  0.75rem;
+  --space-md:  1.25rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+
+  /* Misc */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.5);
+  --shadow-hover: 0 8px 32px rgba(124,106,245,0.28);
+  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--clr-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--clr-accent-2);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   3. TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--clr-text);
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--clr-text);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid transparent;
+  background:
+    linear-gradient(var(--clr-surface), var(--clr-surface)) padding-box,
+    var(--grad-accent) border-box;
+  border-bottom: 2px solid;
+  border-image: var(--grad-accent) 1;
+  display: inline-block;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  color: var(--clr-accent-2);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--clr-text);
+}
+
+strong {
+  color: var(--clr-text);
+  font-weight: 600;
+}
+
+/* ============================================================
+   4. LAYOUT
+   ============================================================ */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+main {
+  padding: var(--space-xl) 0;
+  min-height: calc(100vh - 200px);
+}
+
+/* ============================================================
+   5. HEADER & NAV
+   ============================================================ */
+header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: var(--space-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--clr-text-muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+}
+
+nav a:hover {
+  color: var(--clr-text);
+  background: var(--clr-surface-3);
+}
+
+nav a.active {
+  color: var(--clr-accent);
+  background: rgba(124,106,245,0.12);
+}
+
+/* ============================================================
+   6. FOOTER
+   ============================================================ */
+footer {
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  color: var(--clr-text-dim);
+  text-align: center;
+  padding: var(--space-lg) 0;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   7. CARD / SURFACE UTILITY
+   ============================================================ */
+.card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* ============================================================
+   8. INTRO SECTION (index.html)
+   ============================================================ */
+.intro-section {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.intro-content p {
+  text-align: justify;
+  color: var(--clr-text-muted);
+}
+
+.intro-content strong {
+  color: var(--clr-accent);
+}
+
+/* ============================================================
+   9. GENRES SECTION (genuri_si_tipuri.html)
+   ============================================================ */
+.genres-section {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.genre-item {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-left: 4px solid var(--clr-accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.genre-item:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-hover);
+  border-left-color: var(--clr-accent-2);
+}
+
+.genre-item h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--clr-text);
+}
+
+.genre-item p {
+  margin-bottom: 0;
+  color: var(--clr-text-muted);
+}
+
+/* ============================================================
+   10. TOPURI — GAMES GRID (topuri.html)
+   ============================================================ */
+.topuri-section {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.game-card {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--clr-accent);
+}
+
+.game-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.game-thumbnail {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: var(--clr-surface-3);
+}
+
+.game-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.game-card:hover .game-thumbnail img {
+  transform: scale(1.06);
+}
+
+.game-card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--clr-text);
+  padding: var(--space-md);
+  margin: 0;
+  text-align: center;
+  border-top: 1px solid var(--clr-border);
+}
+
+/* ============================================================
+   11. GALERIE (galerie.html)
+   ============================================================ */
+.galerie-section {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--clr-accent);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   12. GAME DETAIL PAGE (gta5.html + similare)
+   ============================================================ */
+
+/* Wrapper articol */
+.game-detail {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+/* --- Header imagine --- */
+.game-header {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+
+.game-header-image {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.8);
+}
+
+/* Gradient overlay */
+.game-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Border glow */
+.game-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--clr-accent);
+  border-radius: var(--radius-md);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Titlu pe imagine */
+.game-title-overlay {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: var(--space-lg);
+  z-index: 3;
+}
+
+.game-title-overlay h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+}
+
+/* --- Secțiuni interioare comune --- */
+.game-info-section,
+.game-description,
+.game-gallery,
+.system-requirements,
+.game-verdict {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  margin-top: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bara laterala accent */
+.game-info-section::before,
+.game-description::before,
+.game-gallery::before,
+.system-requirements::before,
+.game-verdict::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--grad-accent);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+/* --- Info grid --- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--space-md);
+}
+
+.info-item {
+  background: var(--clr-surface-3);
+  border: 1px solid var(--clr-border);
+  border-left: 3px solid var(--clr-accent);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem var(--space-md);
+}
+
+.info-label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.info-value {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--clr-text);
+}
+
+/* --- Descriere text --- */
+.game-description p {
+  color: var(--clr-text-muted);
+}
+
+.game-description strong {
+  color: var(--clr-accent);
+}
+
+/* --- Galerie screenshots --- */
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.screenshot-item {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--clr-border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.screenshot-item:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.screenshot-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- System requirements --- */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.requirements-column {
+  background: var(--clr-surface-3);
+  border: 1px solid var(--clr-border);
+  border-top: 3px solid var(--clr-accent-2);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.requirements-column h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--clr-text);
+}
+
+.requirements-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.requirements-column li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--clr-border);
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+}
+
+.requirements-column li:last-child {
+  border-bottom: none;
+}
+
+.requirements-column li strong {
+  color: var(--clr-text);
+}
+
+/* --- Verdict --- */
+.game-verdict {
+  background: linear-gradient(135deg, var(--clr-surface-2) 0%, rgba(124,106,245,0.06) 100%);
+}
+
+.game-verdict p {
+  color: var(--clr-text-muted);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--clr-surface-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  width: fit-content;
+}
+
+.rating-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-text-muted);
+}
+
+.rating-stars {
+  color: var(--clr-gold);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.rating-score {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+/* --- Buton înapoi --- */
+.back-button-container {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.8rem;
+  background: var(--grad-accent);
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--clr-accent-glow);
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   13. DESPRE / CONTACT — pagina About
+   ============================================================ */
+
+/* Subtitlu intro */
+.about-subtitle {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+  margin-top: calc(-1 * var(--space-md));
+  margin-bottom: var(--space-xl);
+  letter-spacing: 0.02em;
+}
+
+/* Block generic (o categorie) */
+.about-block {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+  transition: box-shadow var(--transition);
+}
+
+.about-block:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.about-block-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--clr-surface-3);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.about-block-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.about-block-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--clr-text);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.about-block-body {
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.about-block-body p {
+  color: var(--clr-text-muted);
+  margin-bottom: 0;
+}
+
+/* Lista tehnologii */
+.about-tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.about-tech-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--clr-text-muted);
+  font-size: 0.98rem;
+}
+
+.tech-badge {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  background: rgba(124, 106, 245, 0.15);
+  border: 1px solid rgba(124, 106, 245, 0.35);
+  color: var(--clr-accent);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 160px;
+  text-align: center;
+}
+
+/* Lista funcționalități */
+.about-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.about-feature-list li:last-child {
+  border-bottom: none;
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grad-accent);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+.about-feature-list li > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.about-feature-list li strong {
+  color: var(--clr-text);
+  font-size: 1rem;
+}
+
+.about-feature-list li p {
+  color: var(--clr-text-muted);
+  font-size: 0.93rem;
+  margin: 0;
+}
+
+/* Bloc atestat */
+.about-atestat {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
+  background: linear-gradient(135deg, rgba(124,106,245,0.08) 0%, rgba(168,85,247,0.08) 100%);
+  border: 1px solid rgba(124,106,245,0.3);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-atestat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--grad-accent);
+}
+
+.atestat-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.atestat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.atestat-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  color: var(--clr-text);
+  margin: 0;
+}
+
+.atestat-desc {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.atestat-desc strong {
+  color: var(--clr-accent);
+}
+
+/* ============================================================
+   14. CONTACT (contact.html) — stiluri de bază păstrate
+   ============================================================ */
+.contact-section {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.contact-info {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.contact-info p {
+  color: var(--clr-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+/* ============================================================
+   15. HERO SLIDESHOW (index.html)
+   ============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+
+.hero-slides {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  will-change: opacity, transform;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15,15,19,0.25) 0%,
+    rgba(15,15,19,0.15) 40%,
+    rgba(15,15,19,0.85) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--space-lg);
+  gap: var(--space-md);
+}
+
+.hero-eyebrow {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin: 0;
+}
+
+.hero-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  margin: 0;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-sm);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.8rem;
+  background: var(--grad-accent);
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--clr-accent-glow);
+  color: #fff;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.8rem;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.9);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.8);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition), width var(--transition);
+}
+
+.hero-dot.active {
+  background: var(--clr-accent);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(15,15,19,0.55);
+  border: 1px solid var(--clr-border);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), transform var(--transition);
+  padding-bottom: 2px;
+}
+
+.hero-arrow:hover {
+  background: var(--clr-accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-arrow--prev { left: var(--space-lg); }
+.hero-arrow--next { right: var(--space-lg); }
+
+/* ============================================================
+   16. INTRO CARDS (index.html)
+   ============================================================ */
+.intro-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.intro-card {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--grad-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.intro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(124,106,245,0.3);
+}
+
+.intro-card:hover::before {
+  transform: scaleX(1);
+}
+
+.intro-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.intro-card h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--clr-text);
+  margin: 0;
+}
+
+.intro-card p {
+  color: var(--clr-text-muted);
+  font-size: 0.93rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   17. RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 2rem;
+    --space-lg: 1.25rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  nav ul {
+    gap: 0.1rem;
+  }
+
+  .games-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-header-image {
+    height: 220px;
+  }
+
+  .game-title-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  .game-detail {
+    padding: var(--space-lg);
+  }
+
+  .game-info-section,
+  .game-description,
+  .game-gallery,
+  .system-requirements,
+  .game-verdict {
+    padding: var(--space-lg);
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rating {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .intro-section,
+  .genres-section,
+  .topuri-section,
+  .galerie-section,
+  .contact-section {
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .gallery-item img {
+    height: 180px;
+  }
+
+  .screenshot-item img {
+    height: 170px;
+  }
+}
+
+/* Hero + intro cards responsive (adăugat ulterior) */
+@media (max-width: 768px) {
+  .hero {
+    height: 400px;
+  }
+
+  .hero-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+  }
+
+  .intro-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 320px;
+  }
+
+  .hero-arrow {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   18. TOPURI — card îmbunătățit
+   ============================================================ */
+
+/* Header secțiune */
+.topuri-header {
+  margin-bottom: var(--space-xl);
+}
+
+.topuri-subtitle {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: 0;
+}
+
+/* Overlay hover pe imagine */
+.game-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(124, 106, 245, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.game-card:hover .game-card-overlay {
+  opacity: 1;
+}
+
+.game-card-cta {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Rank badge */
+.game-rank {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--clr-surface);
+  border: 2px solid var(--clr-border);
+  color: var(--clr-text-muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.rank-gold {
+  background: linear-gradient(135deg, #f5b50a, #e09000);
+  border-color: #f5b50a;
+  color: #1a1100;
+}
+
+.rank-silver {
+  background: linear-gradient(135deg, #c0c0c0, #909090);
+  border-color: #c0c0c0;
+  color: #111;
+}
+
+.rank-bronze {
+  background: linear-gradient(135deg, #cd7f32, #a05c20);
+  border-color: #cd7f32;
+  color: #fff;
+}
+
+/* Info footer card */
+.game-card-info {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.game-card-info h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--clr-text);
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  border-top: none;
+}
+
+.game-genre {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-accent);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+}
+
+/* Asigurăm că thumbnail e position:relative pentru badge + overlay */
+.game-thumbnail {
+  position: relative;
+}
+
+/* ============================================================
+   19. GALERIE — îmbunătățită
+   ============================================================ */
+
+.galerie-header {
+  margin-bottom: var(--space-xl);
+}
+
+.galerie-subtitle {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: 0;
+}
+
+/* Overlay pe hover */
+.gallery-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(124, 106, 245, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  border-radius: var(--radius-md);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-zoom {
+  font-size: 2.2rem;
+  color: #fff;
+  line-height: 1;
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-zoom {
+  transform: scale(1);
+}
+
+/* ============================================================
+   20. LIGHTBOX
+   ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-inner {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 82vh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 60px rgba(124, 106, 245, 0.3);
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+/* Buton închide */
+.lightbox-close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface-2);
+  color: var(--clr-text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), transform var(--transition);
+  z-index: 2;
+}
+
+.lightbox-close:hover {
+  background: var(--clr-accent);
+  transform: scale(1.1);
+}
+
+/* Săgeți lightbox */
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--clr-border);
+  background: rgba(15,15,19,0.7);
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3px;
+  transition: background var(--transition), transform var(--transition);
+  z-index: 2;
+}
+
+.lightbox-arrow:hover {
+  background: var(--clr-accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev { left: var(--space-lg); }
+.lightbox-next { right: var(--space-lg); }
+
+/* Counter */
+.lightbox-counter {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--clr-text-muted);
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+}
+
+@media (max-width: 480px) {
+  .lightbox-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.6rem;
+  }
+
+  .lightbox-prev { left: var(--space-sm); }
+  .lightbox-next { right: var(--space-sm); }
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Jocuri Video Populare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Jocuri Video Populare</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Acasă</a></li>
+                        <li><a href="genuri_si_tipuri.html">Genuri & Tipuri</a></li>
+                        <li><a href="topuri.html">Topuri</a></li>
+                        <li><a href="galerie.html" class="active">Galerie</a></li>
+                        <li><a href="despre.html">Despre</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="galerie-section">
+
+                <div class="galerie-header">
+                    <h2>Galerie Foto</h2>
+                    <p class="galerie-subtitle">Screenshot-uri și momente din cele mai populare jocuri video</p>
+                </div>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item" data-index="0">
+                        <img src="images/galerie1.jpg" alt="Screenshot joc 1">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="1">
+                        <img src="images/galerie2.png" alt="Screenshot joc 2">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="2">
+                        <img src="images/galerie3.webp" alt="Screenshot joc 3">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="3">
+                        <img src="images/galerie4.jpg" alt="Screenshot joc 4">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="4">
+                        <img src="images/galerie5.webp" alt="Screenshot joc 5">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="5">
+                        <img src="images/galerie6.jpg" alt="Screenshot joc 6">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="6">
+                        <img src="images/galerie7.jpg" alt="Screenshot joc 7">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="7">
+                        <img src="images/galerie8.jpg" alt="Screenshot joc 8">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="8">
+                        <img src="images/galerie9.jpg" alt="Screenshot joc 9">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="9">
+                        <img src="images/galerie10.jpg" alt="Screenshot joc 10">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="10">
+                        <img src="images/galerie11.jpg" alt="Screenshot joc 11">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="11">
+                        <img src="images/galerie12.jpg" alt="Screenshot joc 12">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="12">
+                        <img src="images/galerie13.jpg" alt="Screenshot joc 13">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="13">
+                        <img src="images/galerie14.jpg" alt="Screenshot joc 14">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">&#9906;</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vizualizare imagine">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Închide">&#10005;</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Anterior">&#8249;</button>
+        <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Următor">&#8250;</button>
+        <div class="lightbox-inner">
+            <img src="" alt="" id="lightboxImg" class="lightbox-img">
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jocuri Video Populare. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const items   = document.querySelectorAll('.gallery-item');
+            const lb      = document.getElementById('lightbox');
+            const lbImg   = document.getElementById('lightboxImg');
+            const lbClose = document.getElementById('lightboxClose');
+            const lbPrev  = document.getElementById('lightboxPrev');
+            const lbNext  = document.getElementById('lightboxNext');
+            const lbCount = document.getElementById('lightboxCounter');
+            let current   = 0;
+
+            // Colectăm src-urile și alt-urile
+            const images = Array.from(items).map(item => ({
+                src: item.querySelector('img').src,
+                alt: item.querySelector('img').alt
+            }));
+
+            function openLightbox(index) {
+                current = index;
+                showImage();
+                lb.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lb.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function showImage() {
+                lbImg.src    = images[current].src;
+                lbImg.alt    = images[current].alt;
+                lbCount.textContent = (current + 1) + ' / ' + images.length;
+            }
+
+            function prev() {
+                current = (current - 1 + images.length) % images.length;
+                showImage();
+            }
+
+            function next() {
+                current = (current + 1) % images.length;
+                showImage();
+            }
+
+            // Click pe item
+            items.forEach((item, i) => {
+                item.addEventListener('click', () => openLightbox(i));
+            });
+
+            lbClose.addEventListener('click', closeLightbox);
+            lbPrev.addEventListener('click', prev);
+            lbNext.addEventListener('click', next);
+
+            // Click pe fundal închide
+            lb.addEventListener('click', (e) => {
+                if (e.target === lb) closeLightbox();
+            });
+
+            // Keyboard
+            document.addEventListener('keydown', (e) => {
+                if (!lb.classList.contains('active')) return;
+                if (e.key === 'Escape')      closeLightbox();
+                if (e.key === 'ArrowLeft')   prev();
+                if (e.key === 'ArrowRight')  next();
+            });
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acasă - Jocuri Video Populare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Jocuri Video Populare</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Acasă</a></li>
+                        <li><a href="genuri_si_tipuri.html">Genuri & Tipuri</a></li>
+                        <li><a href="topuri.html">Topuri</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="despre.html">Despre</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ================================================
+             HERO SLIDESHOW
+        ================================================ -->
+        <div class="hero">
+
+            <!-- Slide-uri — înlocuiește src cu imaginile tale -->
+            <div class="hero-slides">
+                <div class="hero-slide active" style="background-image: url('images/hero1.webp')"></div>
+                <div class="hero-slide"        style="background-image: url('images/hero2.webp')"></div>
+                <div class="hero-slide"        style="background-image: url('images/hero3.jpg')"></div>
+                <div class="hero-slide"        style="background-image: url('images/hero4.webp')"></div>
+            </div>
+
+            <!-- Overlay gradient jos -->
+            <div class="hero-overlay"></div>
+
+            <!-- Text centrat -->
+            <div class="hero-content">
+                <p class="hero-eyebrow">Bine ai venit</p>
+                <h1 class="hero-title">Lumea jocurilor<br>video te așteaptă</h1>
+                <p class="hero-sub">Descoperă cele mai populare titluri, genuri și universuri gaming</p>
+                <div class="hero-cta">
+                    <a href="topuri.html" class="btn-primary">Explorează topuri</a>
+                    <a href="genuri_si_tipuri.html" class="btn-ghost">Genuri & Tipuri</a>
+                </div>
+            </div>
+
+            <!-- Dots navigare -->
+            <div class="hero-dots">
+                <button class="hero-dot active" data-index="0" aria-label="Slide 1"></button>
+                <button class="hero-dot"        data-index="1" aria-label="Slide 2"></button>
+                <button class="hero-dot"        data-index="2" aria-label="Slide 3"></button>
+                <button class="hero-dot"        data-index="3" aria-label="Slide 4"></button>
+            </div>
+
+            <!-- Săgeți -->
+            <button class="hero-arrow hero-arrow--prev" aria-label="Anterior">&#8249;</button>
+            <button class="hero-arrow hero-arrow--next" aria-label="Următor">&#8250;</button>
+
+        </div>
+
+        <!-- ================================================
+             CONȚINUT PRINCIPAL
+        ================================================ -->
+        <div class="container">
+            <section class="intro-section">
+
+                <h2>Bine ai venit în lumea jocurilor video!</h2>
+
+                <div class="intro-content">
+                    <p>Jocurile video au devenit o parte esențială a culturii moderne, oferind experiențe interactive care captivează milioane de jucători din întreaga lume. De la primele jocuri arcade din anii '70 până la complexele lumi virtuale de astăzi, industria gaming-ului a evoluat spectaculos.</p>
+
+                    <p>Fie că ești un jucător casual care se relaxează cu puzzle-uri simple sau un gamer dedicat care explorează universuri vaste și complexe, lumea jocurilor video are ceva pentru fiecare. Diversitatea genurilor, stilurilor artistice și mecanicilor de joc asigură că orice persoană poate găsi experiența perfectă pentru preferințele sale.</p>
+
+                    <p>În prezent, jocurile video nu sunt doar o formă de divertisment, ci și un mediu artistic care spune povești captivante, provoacă gândirea strategică și facilitează conexiuni sociale între oameni din toate colțurile lumii. De la competițiile e-sports cu premii în milioane de dolari până la comunități pasionate de jucători indie, ecosistemul gaming este mai vibrant ca niciodată.</p>
+                </div>
+
+                <!-- Cards cele 4 calități -->
+                <div class="intro-cards">
+                    <div class="intro-card">
+                        <span class="intro-card-icon">🕹️</span>
+                        <h4>Interactivitate</h4>
+                        <p>Spre deosebire de filme sau cărți, jocurile îți permit să fii protagonist și să influențezi direct acțiunea prin deciziile tale.</p>
+                    </div>
+                    <div class="intro-card">
+                        <span class="intro-card-icon">🌍</span>
+                        <h4>Diversitate</h4>
+                        <p>Există jocuri pentru toate gusturile — de la aventuri epice și lupte intense până la simulări relaxante și experiențe creative.</p>
+                    </div>
+                    <div class="intro-card">
+                        <span class="intro-card-icon">👥</span>
+                        <h4>Comunitate</h4>
+                        <p>Jocurile multiplayer și platformele online creează spații în care jucătorii pot colabora, compete și construi prietenii durabile.</p>
+                    </div>
+                    <div class="intro-card">
+                        <span class="intro-card-icon">🚀</span>
+                        <h4>Evoluție constantă</h4>
+                        <p>Tehnologia avansează continuu, aducând grafică impresionantă, povești complexe și mecanici inovatoare.</p>
+                    </div>
+                </div>
+
+                <div class="intro-content">
+                    <p>Explorează acest site pentru a descoperi mai multe despre genurile de jocuri, cele mai populare titluri și pentru a te inspira în aventura ta gaming. Fie că abia începi sau ești un veteran, aici vei găsi informații utile și pasiunea noastră comună pentru această formă de artă interactivă!</p>
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jocuri Video Populare. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <!-- Slideshow Script -->
+    <script>
+        (function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots   = document.querySelectorAll('.hero-dot');
+            const prev   = document.querySelector('.hero-arrow--prev');
+            const next   = document.querySelector('.hero-arrow--next');
+            let current  = 0;
+            let timer;
+
+            function goTo(index) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (index + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function autoPlay() {
+                timer = setInterval(() => goTo(current + 1), 5000);
+            }
+
+            function resetTimer() {
+                clearInterval(timer);
+                autoPlay();
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    goTo(+dot.dataset.index);
+                    resetTimer();
+                });
+            });
+
+            prev.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+            next.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+            autoPlay();
+        })();
+    </script>
+
+</body>
+</html>
