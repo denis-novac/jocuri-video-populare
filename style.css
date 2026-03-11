@@ -970,7 +970,7 @@ footer {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: red;
   margin: 0;
 }
 
@@ -1580,4 +1580,5 @@ footer {
 
   .lightbox-prev { left: var(--space-sm); }
   .lightbox-next { right: var(--space-sm); }
+
 }
