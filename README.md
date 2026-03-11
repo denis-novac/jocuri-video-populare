@@ -84,7 +84,7 @@ jocuri-video-populare/
 
 1. **Clonează repository-ul:**
    ```bash
-   git clone https://github.com/username/jocuri-video-populare.git
+   git clone https://github.com/denis-novac/jocuri-video-populare.git
    cd jocuri-video-populare
    ```
 
@@ -99,7 +99,7 @@ jocuri-video-populare/
 ## 🔮 Direcții de dezvoltare viitoare
 
 - [ ] Optimizarea designului responsiv pentru toate dimensiunile de ecran
-- [ ] Adăugarea de animații și elemente interactive suplimentare
+- [X] Adăugarea de animații și elemente interactive suplimentare
 - [ ] Extinderea bazei de date cu mai multe jocuri și informații detaliate (an lansare, platforme disponibile)
 - [ ] Secțiune dedicată istoriei jocurilor video
 - [ ] Comparații interactive între jocuri
@@ -109,11 +109,6 @@ jocuri-video-populare/
 
 ## 📚 Bibliografie
 
-- *Manual de Tehnologie a Informației și a Comunicațiilor (Clasa a IX-a)* — Radu Mârșanu, Ana Ramona, Lupu Răzvan Bologa, Editura All
-- *Internet și pagini web. Manual pentru începători și inițiați* — Marcel Homorodean, Irina Iosupescu, Editura Miculescu
-- *Manual Informatică (Clasa a XII-a)* — Cristiana Carnat, Maria Scripca, Sanda Junea, Editura Gill
-- *Crearea Paginilor Web* — Ned Snel, Editura Teora
-- *HTML, CSS, & JavaScript All-in-One For Dummies* — John Wiley & Sons Inc, octombrie 2023
 - [freeCodeCamp](https://www.freecodecamp.org/learn)
 - [W3Schools](https://www.w3schools.com/)
 
