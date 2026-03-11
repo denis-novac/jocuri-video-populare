@@ -1,7 +1,7 @@
 # 🎮 Jocuri Video Populare
 
 > Proiect pentru susținerea Examenului de Atestare a Competențelor Profesionale la Informatică  
-> **Candidat:** Novac Denis-Constantin — Clasa a XII-a C  
+> **Candidat:** Novac Denis-Constantin 
 > **Îndrumător:** Prof. Coșniță Emilia-Felicia  
 > Liceul Teoretic "Miron Costin" Pașcani — *mai 2026*
 
@@ -115,5 +115,5 @@ jocuri-video-populare/
 ---
 
 <p align="center">
-  Realizat cu ❤️ de <strong>Novac Denis-Constantin</strong> · Clasa a XII-a C · 2026
+  Realizat cu ❤️ de <strong>Novac Denis-Constantin</strong> · 2026
 </p>
